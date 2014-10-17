@@ -62,6 +62,10 @@ class PPHttpConnection
 				curl_setopt($ch, CURLOPT_POST, true);
 				curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
 				break;
+			case 'PATCH':
+				curl_setopt($ch, CURLOPT_CUSTOMREQUEST, $this->httpConfig->getMethod());
+				curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
+				break;
 		}
 		if($this->httpConfig->getMethod() != NULL) {
 			curl_setopt($ch, CURLOPT_CUSTOMREQUEST, $this->httpConfig->getMethod());
